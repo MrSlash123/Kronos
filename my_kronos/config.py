@@ -2,10 +2,15 @@
 """
 配置文件 - Kronos 本地运行配置
 """
+import os
+from dotenv import load_dotenv
+
+# 加载环境变量
+load_dotenv()
 
 # 数据库配置
-DB_URL = "postgresql+psycopg2://postgres:123456@localhost:5432/quantization"
-TABLE_NAME = "gp_real_bar1d"
+DB_URL = os.getenv("DB_URL", "postgresql+psycopg2://postgres:your_password_here@localhost:5432/quantization")
+TABLE_NAME = os.getenv("TABLE_NAME", "gp_real_bar1d")
 
 # 模型配置
 TOKENIZER_PRETRAINED = "NeoQuasar/Kronos-Tokenizer-2k"

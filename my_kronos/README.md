@@ -16,7 +16,7 @@
 ### 1. 安装依赖
 
 ```bash
-cd C:\Users\slash\PycharmProjects\Kronos\my_kronos
+cd my_kronos
 pip install -r requirements.txt
 ```
 
@@ -63,7 +63,8 @@ python predict.py --instrument 600519.SH
 
 ```python
 # 数据库配置
-DB_URL = "postgresql+psycopg2://postgres:123456@localhost:5432/quantization"
+DB_URL = "postgresql+psycopg2://postgres:your_password_here@localhost:5432/quantization"
+TABLE_NAME = "gp_real_bar1d"
 
 # 模型配置
 TOKENIZER_PRETRAINED = "NeoQuasar/Kronos-Tokenizer-2k"

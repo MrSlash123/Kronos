@@ -13,6 +13,11 @@ def export_data(instrument: str):
     """导出指定股票的K线数据"""
     print(f"📥 正在导出 {instrument} 的日线数据...")
 
+    # 安全验证：表名只能是允许的特定值
+    allowed_tables = {"gp_real_bar1d", "gp_real_bar1min"}
+    if TABLE_NAME not in allowed_tables:
+        raise ValueError(f"不允许使用表名: {TABLE_NAME}")
+
     # 创建数据库连接
     engine = create_engine(DB_URL)
 
